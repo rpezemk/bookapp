@@ -62,6 +62,13 @@ async def get_book_by_ID(id: str):
         return  {"msg":"error occured!"}
 
 
+@app.post('/clear', tags=['clear db, leave only test book'])
+async def clear_my_db(query: str):
+    if query == 'clear':
+        clear_db()
+    return {'msg':'db cleared, left only test book'}
+
+
 @app.post('/db', tags=['post books'])
 async def post_db(query: dict):
     #return list(query)[0]
@@ -81,6 +88,27 @@ async def post_db(query: dict):
     
     save_books(localBooks)
     return {'msg':'db updated'}
+
+
+
+
+mybook = {
+                "kind": "books#volume",
+                "id": "testvol",
+                "volumeInfo": {
+                    "title": "rozprawa o początkach fastapi",
+                    "authors": [
+                        "przema"
+                    ],
+                    "publishedDate": "2021"
+                }
+            }
+
+def clear_db():
+    save_books([mybook])
+
+
+
 
 def get_all_local_books():
     data = open("data.json", 'r', encoding='utf-8')
