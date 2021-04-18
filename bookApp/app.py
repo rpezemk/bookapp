@@ -1,7 +1,7 @@
-from fastapi import Depends, FastAPI, HTTPException, status
+from fastapi import FastAPI, HTTPException, status
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 import json, secrets
-from jsonschema import validate
+#from jsonschema import validate
 from fastapi.responses import HTMLResponse
 from urllib.request import urlopen
 from typing import Optional

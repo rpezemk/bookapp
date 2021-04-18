@@ -1,1 +1,1 @@
-web: gunicorn bookApp.app:app
+web: uvicorn bookApp.app:app --host=0.0.0.0 --port=${PORT:-5000}
