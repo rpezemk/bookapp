@@ -80,7 +80,7 @@ async def post_db(query: dict):
             localBooks.append(book)
     
     save_books(localBooks)
-
+    return {'msg':'db updated'}
 
 def get_all_local_books():
     data = open("data.json", 'r', encoding='utf-8')
