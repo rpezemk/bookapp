@@ -15,8 +15,16 @@ async def read_items():
             <title>Hello, dear STX TEAM! <3</title>
         </head>
         <body>
-            <h1>Welcome to my bookstore,  v=1/n, n-> inf</h1>
+            <h1>Welcome to my bookstore,  v=pi-1/n, n-> inf</h1>
             <h2>it's done with FASTapi, it's so great!</h>
+            <p>GET '/update' works without an argument, it fills db with some books from googleapi link</p>
+            <p>GET '/books/' without an argument returns full list of books in data.json</p>
+            <p>GET '/books?author=[authorname]&publisheddate=[date]&sortkey (each arg. may be alone) gives common set of books having both author and publisheddate</p>
+            <p>GET '/books/{id}' return book with given ID if it exists in db.</p>
+            <p>POST '/clear' with argument query=clear clears db, leaving only one test book</p>
+            <p>POST '/db' with argument query={"q":"tag"} downloads books from googleapi with argument q=tag. Saves new books in db </p>
+            <p></p>
+
         </body>
     </html>
     """
