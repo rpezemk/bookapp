@@ -35,7 +35,6 @@ async def basic_update():
     return{'msg':'updated'}
 
 
-#example: /books?author=Tolkien&publisheddate="2012-10-02"&sortkey=id
 @app.get('/books', tags=['books'])
 async def get_books(author:str = "", publisheddate:str = "", sortkey:str = "") -> list:
 
@@ -55,8 +54,6 @@ async def get_books(author:str = "", publisheddate:str = "", sortkey:str = "") -
         booksFiltered = sorted(booksFiltered, key=lambda k: k[sortkey], reverse= reversedSorting )
     return booksFiltered
     #return list(filter(lambda x: ( author in authorq for authors in x["volumeInfo"]["authors"] ) , books))
-
-
 
 
 @app.get('/books/{id}', tags=['books by ID'])
@@ -111,6 +108,7 @@ mybook = {
                     "publishedDate": "2021"
                 }
             }
+
 
 def clear_db():
     save_books([mybook])
